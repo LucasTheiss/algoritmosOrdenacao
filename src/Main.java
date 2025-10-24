@@ -8,7 +8,7 @@ public class Main {
 
         int l = 20; // tamanho das listas
 
-        System.out.println("\nSortings com o vetor1");
+        System.out.println("\nSortings com vetor semi organizado (semi organizado)");
         Sort.gnomeSort(l, vetor1);
         Sort.cocktailSort(l, vetor1);
         Sort.combSort(l, vetor1);
@@ -16,7 +16,7 @@ public class Main {
         Sort.bucketSort(l, vetor1);
         Sort.selectionSort(l, vetor1);
 
-        System.out.println("\nSortings com o vetor2");
+        System.out.println("\nSortings com vetor ordenado (melhor caso)");
         Sort.gnomeSort(l, vetor2);
         Sort.cocktailSort(l, vetor2);
         Sort.combSort(l, vetor2);
@@ -24,7 +24,7 @@ public class Main {
         Sort.bucketSort(l, vetor2);
         Sort.selectionSort(l, vetor2);
 
-        System.out.println("\nSortings com o vetor3");
+        System.out.println("\nSortings com vetor invertido (pior caso)");
         Sort.gnomeSort(l, vetor3);
         Sort.cocktailSort(l, vetor3);
         Sort.combSort(l, vetor3);
