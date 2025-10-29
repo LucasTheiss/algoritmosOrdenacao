@@ -9,12 +9,13 @@ public class Main {
         int l = 20; // tamanho das listas
 
         System.out.println("\nSortings com vetor semi organizado (semi organizado)");
-        Sort.gnomeSort(l, vetor1);
-        Sort.cocktailSort(l, vetor1);
-        Sort.combSort(l, vetor1);
-        Sort.bubbleSort(l, vetor1);
-        Sort.bucketSort(l, vetor1);
-        Sort.selectionSort(l, vetor1);
+        // Passa o clone do array ja que em Java o array é passado de forma semelhante á referência, entao, sem o uso de clone precisaria recriar o array toda execução de algum sort
+        Sort.gnomeSort(l, vetor1.clone());
+        Sort.cocktailSort(l, vetor1.clone());
+        Sort.combSort(l, vetor1.clone());
+        Sort.bubbleSort(l, vetor1.clone());
+        Sort.bucketSort(l, vetor1.clone());
+        Sort.selectionSort(l, vetor1.clone());
 
         System.out.println("\nSortings com vetor ordenado (melhor caso)");
         Sort.gnomeSort(l, vetor2);
@@ -25,11 +26,11 @@ public class Main {
         Sort.selectionSort(l, vetor2);
 
         System.out.println("\nSortings com vetor invertido (pior caso)");
-        Sort.gnomeSort(l, vetor3);
-        Sort.cocktailSort(l, vetor3);
-        Sort.combSort(l, vetor3);
-        Sort.bubbleSort(l, vetor3);
-        Sort.bucketSort(l, vetor3);
-        Sort.selectionSort(l, vetor3);
+        Sort.gnomeSort(l, vetor3.clone());
+        Sort.cocktailSort(l, vetor3.clone());
+        Sort.combSort(l, vetor3.clone());
+        Sort.bubbleSort(l, vetor3.clone());
+        Sort.bucketSort(l, vetor3.clone());
+        Sort.selectionSort(l, vetor3.clone());
     }
 }
