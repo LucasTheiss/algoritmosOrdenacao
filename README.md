@@ -4,7 +4,7 @@ Não foram medidas as trocas realizadas pelo BucketSort, já que não é realiza
 ## Cenário 1: Vetor Semi Organizado
 
 ### Ranking por Movimentação de Dados
-O `SelectionSort` assume a liderança no tópico de movimentação de dados (18 trocas) por uma margem pequena sobre o `CombSort` (22 trocas). 
+O `SelectionSort` é o líder na quantidade de trocas (18 trocas) por uma margem pequena sobre o `CombSort` (22 trocas). 
 
 | Rank | Algoritmo | Valor (Movimentações) | Tipo |
 | :--- | :--- | :--- | :--- |
@@ -31,15 +31,7 @@ O **BucketSort** é o **vencedor em iterações** (92), tornando-o o algoritmo m
 ## Cenário 2: Vetor Ordenado (Melhor Caso)
 
 ### Ranking por Movimentação de Dados
-Todos os algoritmos medidos têm um custo de movimentação nulo.
-
-| Rank | Algoritmo | Valor (Movimentações) | Tipo |
-| :--- | :--- | :--- | :--- |
-| 1 | GnomeSort | 0 | (Trocas) |
-| 2 | CocktailSort | 0 | (Trocas) |
-| 3 | CombSort | 0 | (Trocas) |
-| 4 | BubbleSort | 0 | (Trocas) |
-| 5 | SelectionSort | 0 | (Trocas) |
+Todos os algoritmos medidos têm a quantidade de trocas necessárias nula.
 
 ### Ranking por Iterações
 Em iterações, os algoritmos Cocktail, Bubble, Gnome vencem por terminarem em Ω(n).
@@ -58,7 +50,7 @@ Em iterações, os algoritmos Cocktail, Bubble, Gnome vencem por terminarem em �
 ## Cenário 3: Vetor Invertido (Pior Caso)
 
 ### Ranking por Movimentação de Dados
-Este é o cenário mais competitivo. O `SelectionSort` é o campeão em movimentações (10 trocas). O `CombSort` (18 trocas) fica em segundo lugar com a menor contagem.
+Este é o cenário mais competitivo. O `SelectionSort` é o campeão em movimentações (10 trocas). O `CombSort` (18 trocas) fica em segundo lugar com a próxima menor contagem.
 
 | Rank | Algoritmo | Valor (Movimentações) | Tipo |
 | :--- | :--- | :--- | :--- |
