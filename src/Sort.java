@@ -209,9 +209,9 @@ public class Sort {
                 // insere current depois de search
                 current.next = search.next;
                 search.next = current;
-                counter[1]++;
             }
 
+            counter[1]++;
             current = nextToSort;
         }
 
