@@ -3,7 +3,7 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 .idea/
-Ordenacao.iml/
+Ordenacao.iml
 
 .apt_generated
 .classpath
