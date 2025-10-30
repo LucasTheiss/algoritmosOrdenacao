@@ -121,7 +121,7 @@ public class Sort {
     static void bucketSort(int size, int[] l) {
         // separa elementos em buckets, ordena cada bucket com algum algoritmo (nesse caso insertion sort), junta os buckets
 
-        int[] counter = {0, 0}; // usa uma lista para "passar por referencia" na funcao de insertionSort
+        int[] counter = {0}; // usa uma lista para "passar por referencia" na funcao de insertionSort
 
         // descobre o range do array
         int min = l[0], max = l[0];
@@ -165,7 +165,7 @@ public class Sort {
         }
         counter[0] += M;
 
-        System.out.println("BucketSort | nº de iterações: " + counter[0] + " | nº de relinks: " + counter[1]);
+        System.out.println("BucketSort | nº de iterações: " + counter[0] + " | nº de trocas: (Não há trocas)");
     }
 
 
@@ -211,7 +211,6 @@ public class Sort {
                 search.next = current;
             }
 
-            counter[1]++;
             current = nextToSort;
         }
 
