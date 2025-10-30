@@ -121,6 +121,8 @@ public class Sort {
     static void bucketSort(int size, int[] l) {
         // separa elementos em buckets, ordena cada bucket com algum algoritmo (nesse caso insertion sort), junta os buckets
 
+        int[] counter = {0, 0}; // usa uma lista para "passar por referencia" na funcao de insertionSort
+
         // descobre o range do array
         int min = l[0], max = l[0];
         for (int i = 1; i < size; i++) {
@@ -137,7 +139,7 @@ public class Sort {
 
         // Distribuir os elementos dentro dos buckets
         for (int i = 0; i < size; i++) {
-            int index = (l[i] - min) / div;
+            int index = (l[i] - min) / div; //divide o numero e trunca o resultado
             if (index >= M) index = M - 1;
 
             Node newNode = new Node(l[i]);
@@ -145,27 +147,29 @@ public class Sort {
             newNode.next = buckets[index];
             buckets[index] = newNode;
         }
-        Stats.it += size * 2; // soma pelos 2 loops anteriores
+        counter[0] += size * 2; // soma pelos 2 loops anteriores
 
-        // Ordena os buckets
+        // Ordena os buckets e junta eles
         int k = 0; // index que sera usado para juntar os buckets
         for (int i = 0; i < M; i++) {
-            buckets[i] = insertionSort(buckets[i]);
+            // ordena os buckets
+            buckets[i] = insertionSort(buckets[i], counter);
 
             // junta os buckets no array
             Node current = buckets[i];
             while (current != null) {
+                counter[0]++;
                 l[k++] = current.value;
                 current = current.next;
             }
         }
+        counter[0] += M;
 
-        System.out.println("BucketSort | nº de iterações: " + Stats.it + " | nº de trocas: " + Stats.tr);
-        Stats.zerarStats();
+        System.out.println("BucketSort | nº de iterações: " + counter[0] + " | nº de relinks: " + counter[1]);
     }
 
 
-    // funcoes usadas no bucket sort
+    // auxiliares usados no bucket sort
     static class Node {
         int value;
         Node next;
@@ -176,14 +180,8 @@ public class Sort {
         }
     }
 
-    static class Stats{ // classe usada para simular passagem por referência já que não é possível de forma natural no Java
-        static int it, tr;
-        public Stats(int it, int tr){ it = 0; tr = 0; }
-        static void zerarStats() { it = 0; tr = 0; }
-    }
-
-    static Node insertionSort(Node head) {
-        // Vai recriar uma lista com o elemento que precisa ser adiciona no lugar certo
+    static Node insertionSort(Node head, int[] counter) {
+        // procura o local em que o precisa ser adiciona e insere ele
         if (head == null || head.next == null) {
             return head;
         }
@@ -192,7 +190,7 @@ public class Sort {
         Node current = head;
 
         while (current != null) {
-            Stats.it++;
+            counter[0]++;
             Node nextToSort = current.next; // Salva o próximo item da lista original
 
             // insere no início (lista ordenada está vazia ou current é o menor)
@@ -205,13 +203,13 @@ public class Sort {
                 Node search = sortedHead;
                 // search.next não é nulo E o próximo valor é < que o valor atual
                 while (search.next != null && search.next.value < current.value) {
-                    Stats.it++;
+                    counter[0]++;
                     search = search.next;
                 }
                 // insere current depois de search
                 current.next = search.next;
                 search.next = current;
-                Stats.tr++;
+                counter[1]++;
             }
 
             current = nextToSort;
